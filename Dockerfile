@@ -24,7 +24,7 @@ RUN \
   apt-get upgrade -y && \
   apt-get dist-upgrade -y
 
-# Install Common Dependencies
+# Install Dependencies
 RUN apt-get -y install curl software-properties-common
 
 # Install Oracle Java 8
