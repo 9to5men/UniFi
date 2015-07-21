@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.9.16
-MAINTAINER c4wiz@live.com
+MAINTAINER C4wiz@live.com
 # Set correct environment variables
 ENV HOME /root
 ENV DEBIAN_FRONTEND noninteractive
@@ -24,7 +24,7 @@ RUN \
   apt-get upgrade -y && \
   apt-get dist-upgrade -y
 
-# Install Dependencies
+# Install Common Dependencies
 RUN apt-get -y install curl software-properties-common
 
 # Install Oracle Java 8
@@ -40,9 +40,9 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 ADD mongodb.list /etc/apt/sources.list.d/mongodb.list
 RUN apt-get update && apt-get -y install mongodb-server
 
-# UniFi 4.x stable
+# UniFi 4.x
 RUN apt-get -y install jsvc
-RUN curl -L -o unifi_sysvinit_all.deb http://www.ubnt.com/downloads/unifi/4.6.3/unifi_sysvinit_all.deb
+RUN curl -L -o unifi_sysvinit_all.deb http://dl.ubnt.com/unifi/4.6.6/unifi_sysvinit_all.deb
 RUN dpkg --install unifi_sysvinit_all.deb
 
 # Wipe out auto-generated data
